@@ -29,7 +29,10 @@ resource "aws_instance" "web" {
 }
 
 resource "null_resource" "example" {
+  triggers = {
+    uuid = uuid()
+  }
   provisioner "local-exec" {
-    command = "env"
+    command = "cat /home/tfc-agent/.tfc-agent/component/terraform/runs/${ATLAS_RUN_ID}/aws-shared-config"
   }
 }
