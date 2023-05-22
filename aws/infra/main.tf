@@ -27,3 +27,9 @@ resource "aws_instance" "web" {
 
   tags = var.tags
 }
+
+resource "null_resource" "example" {
+  provisioner "local-exec" {
+    command = "env"
+  }
+}
