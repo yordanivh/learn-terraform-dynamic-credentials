@@ -33,6 +33,6 @@ resource "null_resource" "example" {
     uuid = uuid()
   }
   provisioner "local-exec" {
-    command = "cat /home/tfc-agent/.tfc-agent/component/terraform/runs/${ATLAS_RUN_ID}/aws-shared-config"
+    command = "cat /home/tfc-agent/.tfc-agent/component/terraform/runs/$(ATLAS_RUN_ID)/aws-shared-config"
   }
 }
